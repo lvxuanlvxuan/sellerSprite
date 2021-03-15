@@ -22,6 +22,6 @@ public class AsinRequest  extends AbstractApiRequest {
     }
 
     public String getUrlParam() {
-        return "/api/asin/";
+        return "/v1/asin/";
     }
 }

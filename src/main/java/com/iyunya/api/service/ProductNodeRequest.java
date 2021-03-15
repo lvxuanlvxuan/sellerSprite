@@ -24,6 +24,6 @@ public class ProductNodeRequest extends AbstractApiRequest {
     }
 
     public String getUrlParam() {
-        return "/api/product/nodes";
+        return "/v1/product/nodes";
     }
 }

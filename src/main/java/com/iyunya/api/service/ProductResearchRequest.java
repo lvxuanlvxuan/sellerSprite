@@ -21,6 +21,6 @@ public class ProductResearchRequest<T> extends AbstractApiRequest {
     }
 
     public String getUrlParam() {
-        return "/api/product/research";
+        return "/v1/product/research";
     }
 }

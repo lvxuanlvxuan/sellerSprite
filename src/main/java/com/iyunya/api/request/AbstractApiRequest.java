@@ -25,14 +25,14 @@ public abstract class AbstractApiRequest implements ApiRequest{
     public ApiRequest build(String urlPrefix,String secretKey){
         Headers headers = new Headers.Builder()
                 .add("context-type:application/json")
-                .add("secretKey:"+secretKey).build();
+                .add("secret-key:"+secretKey).build();
         requestBuilder = new Request.Builder().headers(headers);
         this.urlPrefix = urlPrefix;
         return this;
     }
 
     public Result doGet(Map<String,Object> paramMap) throws IOException {
-        return doGet(paramMap,urlPrefix + getUrlParam());
+        return doGet(paramMap,getUrlParam());
     }
 
     public Result doGet(Map<String,Object> paramMap,String url) throws IOException {

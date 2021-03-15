@@ -16,17 +16,38 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        ApiRequestClient client = ApiRequestClient.build("http://localhost:8088", "db927f2c0581475aa9c62023b2bf72b1");
-        ProductChooseReqDto reqDto = new ProductChooseReqDto();
-        reqDto.setMarketplace("US");
-        reqDto.setMonth("nearly");
-        Result execute = client.execute(reqDto);
-        System.out.println(JSONObject.toJSONString(execute));
+        //网关
+        String url = "https://api.sellersprite.com/";
+        //秘钥
+        String secretKey= "你的秘钥";
 
-//        AsinReqDto asinReqDto = new AsinReqDto();
-//        asinReqDto.setMarketplace("US");
-//        asinReqDto.setAsin("B01BI90V8M");
-//        Result execute1 = client.execute(asinReqDto);
-//        System.out.println(JSONObject.toJSONString(execute1));
+        ApiRequestClient client = ApiRequestClient.build(url, secretKey);
+
+        //选产品
+        ProductChooseReqDto chooseReqDto = new ProductChooseReqDto();
+        chooseReqDto.setMarketplace("US");
+        chooseReqDto.setMonth("nearly");
+        Result chooseResult = client.execute(chooseReqDto);
+        System.out.println(JSONObject.toJSONString(chooseResult));
+
+        //查ASIN详情
+        AsinReqDto asinReqDto = new AsinReqDto();
+        asinReqDto.setMarketplace("US");
+        asinReqDto.setAsin("B01BI90V8M");
+        Result asinResult = client.execute(asinReqDto);
+        System.out.println(JSONObject.toJSONString(asinResult));
+
+        //查产品类目
+        ProductNodeReqDto nodeReqDto = new ProductNodeReqDto();
+        nodeReqDto.setMarketplace("US");
+        Result nodeResult = client.execute(nodeReqDto);
+        System.out.println(JSONObject.toJSONString(nodeResult));
+
+        //查竞品
+        CompetitorProductReqDto competitorProductReqDto = new CompetitorProductReqDto();
+        competitorProductReqDto.setMarketplace("US");
+        competitorProductReqDto.setMonth("nearly");
+        Result competitorResult = client.execute(competitorProductReqDto);
+        System.out.println(JSONObject.toJSONString(competitorResult));
     }
 }

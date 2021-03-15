@@ -21,6 +21,6 @@ public class CompetitorLookupRequest extends AbstractApiRequest {
     }
 
     public String getUrlParam() {
-        return "/api/product/competitor/lookup";
+        return "/v1/product/competitor/lookup";
     }
 }
