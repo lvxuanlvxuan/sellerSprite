@@ -47,10 +47,22 @@ public class CompetitorProductReqDto extends RequestParam implements Serializabl
      */
     private String keyword;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getVariation() {
+        return variation;
+    }
+
+    public void setVariation(String variation) {
+        this.variation = variation;
+    }
+
     /**
      * 是否查询变体asin Y:否 N:是
      */
-    private String symbol;
+    private String variation;
 
     public String getMarketplace() {
         return marketplace;
@@ -108,11 +120,4 @@ public class CompetitorProductReqDto extends RequestParam implements Serializabl
         this.keyword = keyword;
     }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
 }

@@ -22,7 +22,8 @@ public abstract class AbstractApiRequest implements ApiRequest{
 
     private String urlPrefix;
 
-    public ApiRequest build(String urlPrefix,String secretKey){
+    @Override
+    public ApiRequest build(String urlPrefix, String secretKey){
         Headers headers = new Headers.Builder()
                 .add("context-type:application/json")
                 .add("secret-key:"+secretKey).build();
@@ -31,6 +32,7 @@ public abstract class AbstractApiRequest implements ApiRequest{
         return this;
     }
 
+    @Override
     public Result doGet(Map<String,Object> paramMap) throws IOException {
         return doGet(paramMap,getUrlParam());
     }
@@ -58,6 +60,7 @@ public abstract class AbstractApiRequest implements ApiRequest{
         return result;
     }
 
+    @Override
     public Result doPost(RequestParam requestParam) throws IOException {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"),JSONObject.toJSONString(requestParam));
         Request request = requestBuilder.url(urlPrefix+getUrlParam()).post(requestBody).build();

@@ -17,12 +17,14 @@ import java.util.Map;
  * @date 2021/3/4 14:22
  */
 public class ProductNodeRequest extends AbstractApiRequest {
+    @Override
     public Result execute(RequestParam requestParam) throws IOException {
         String param = JSONObject.toJSONString(requestParam);
         Map<String,Object> paramMap = JSONObject.parseObject(param,Map.class);
         return super.doGet(paramMap);
     }
 
+    @Override
     public String getUrlParam() {
         return "/v1/product/node";
     }

@@ -16,10 +16,12 @@ import java.util.List;
  * @date 2021/3/4 12:06
  */
 public class CompetitorLookupRequest extends AbstractApiRequest {
+    @Override
     public Result execute(RequestParam requestParam) throws IOException {
         return super.doPost(requestParam);
     }
 
+    @Override
     public String getUrlParam() {
         return "/v1/product/competitor-lookup";
     }

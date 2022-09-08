@@ -16,10 +16,12 @@ import java.util.List;
  */
 public class ProductResearchRequest<T> extends AbstractApiRequest {
 
+    @Override
     public Result execute(RequestParam requestParam) throws IOException {
         return super.doPost(requestParam);
     }
 
+    @Override
     public String getUrlParam() {
         return "/v1/product/research";
     }

@@ -16,11 +16,13 @@ import java.util.HashMap;
  */
 public class AsinRequest  extends AbstractApiRequest {
 
+    @Override
     public Result execute(RequestParam requestParam) throws IOException {
         AsinReqDto asinReqDto = (AsinReqDto)requestParam;
         return super.doGet(new HashMap<String, Object>(),getUrlParam() + asinReqDto.getMarketplace() + "/" + asinReqDto.getAsin());
     }
 
+    @Override
     public String getUrlParam() {
         return "/v1/asin/";
     }
